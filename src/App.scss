@@ -14,6 +14,10 @@ $secondary: #9a00e2;
   font-size: 14px;
 }
 
+.hsm2 {
+  font-size: 1.4rem;
+}
+
 .hxl {
   font-size: 2.5rem;
   font-weight: 700;
@@ -107,6 +111,10 @@ body {
   display: none;
 }
 
+.rightbar_menu {
+  display: block;
+}
+
 @media screen and (max-width: 1000px) {
   .body_container {
     grid-template-columns: 1fr;
@@ -128,6 +136,10 @@ body {
   #nav_2,
   #nav_bar {
     display: none;
+  }
+
+  .rightbar_menu {
+    display: block;
   }
 
   // #nav_bar {

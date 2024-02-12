@@ -6,7 +6,10 @@ const Navbar = ({ setActivesidebar, setActiverightbar }) => {
 
   return (
     <header className="fixed top-0 left-0 px-10 w-full z-10 flex justify-between align-center shadow-lg bg-dark">
-      <div onClick={() => setActiverightbar("open")} className="rightbar_menu">
+      <div
+        onClick={() => setActiverightbar("open")}
+        className="rightbar_menu lg:hidden "
+      >
         &#9776;
       </div>
 

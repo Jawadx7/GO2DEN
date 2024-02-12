@@ -8,6 +8,11 @@ import { useState } from "react";
 function App() {
   const [activesidebar, setActivesidebar] = useState("close");
   const [activerightbar, setActiverightbar] = useState("close");
+  const [activePlayer, setActivePlayer] = useState("");
+
+  const getActivePlayer = (id) => {
+    setActivePlayer(id);
+  };
 
   return (
     <>
@@ -19,11 +24,13 @@ function App() {
         <Sidebar
           setActivesidebar={setActivesidebar}
           activesidebar={activesidebar}
+          activePlayer={activePlayer}
         />
-        <Main />
+        <Main activePlayer={activePlayer} />
         <Rightbar
           setActiverightbar={setActiverightbar}
           activerightbar={activerightbar}
+          getActivePlayer={getActivePlayer}
         />
       </div>
     </>

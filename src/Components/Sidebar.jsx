@@ -1,13 +1,8 @@
-import { useParams } from "react-router-dom";
 import AV1 from "../assets/av,1.jpg";
 import { Teams } from "../Data/Teams";
 import { Players } from "../Data/Players";
 
-const Sidebar = ({ activesidebar, setActivesidebar }) => {
-  const { id } = useParams();
-  const players = Players.find((player) => player.id.toString() === id);
-  4;
-
+const Sidebar = ({ activesidebar, setActivesidebar, activePlayer }) => {
   return (
     <div
       id="sidebar"
@@ -19,10 +14,10 @@ const Sidebar = ({ activesidebar, setActivesidebar }) => {
 
       <div className="container mb-3">
         <div className="flex space-x-5">
-          <img id="gamer_pic" src={AV1} alt="" />
+          <img id="gamer_pic" src={Players[activePlayer].img} alt="" />
           <div className="flex flex-col">
-            <span>Vino_Costa</span>
-            <span className="text-gray-500">Game Profile</span>
+            <span>{Players[activePlayer].name}</span>
+            <span className="text-gray-500">{Players[activePlayer].tag}</span>
           </div>
         </div>
 

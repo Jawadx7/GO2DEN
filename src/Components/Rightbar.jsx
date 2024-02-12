@@ -1,9 +1,8 @@
-import React from "react";
 import AV1 from "../assets/av,1.jpg";
 import { Players } from "../Data/Players";
 import { Teams } from "../Data/Teams";
 
-const Rightbar = ({ setActiverightbar, activerightbar }) => {
+const Rightbar = ({ setActiverightbar, activerightbar, getActivePlayer }) => {
   return (
     <div
       id="rightbar"
@@ -26,9 +25,9 @@ const Rightbar = ({ setActiverightbar, activerightbar }) => {
         <ul>
           {Players.map(({ id, name, tag, img, game_banner, games, count }) => (
             <div
-              // to={`/${id}`}
               key={id}
               className="flex justify-between align-center p-2 hover:bg-dark cursor-pointer"
+              onClick={() => getActivePlayer(id)}
             >
               <div className="flex space-x-3 align-center">
                 <img id="nav_pic" src={img} alt="" />

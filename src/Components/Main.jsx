@@ -10,19 +10,22 @@ import game3 from "../assets/cod,3.jpg";
 import game5 from "../assets/cod,5.jpg";
 import game6 from "../assets/cod,6.jpg";
 
-const Main = () => {
+import { Players } from "../Data/Players";
+
+const Main = ({ activePlayer }) => {
+  const current = Players[activePlayer];
   return (
     <div id="main" className="body_div">
       <div className="relative">
-        <img id="banner" src={codBanner} alt="" />
+        <img id="banner" src={current.game_banner} alt="" />
         <div className="absolute h-full w-full top-0 left-0 p-5 flex flex-col justify-between">
           <div>
             <h1 className="text-primary">
               Battle your brains out in one night
             </h1>
-            <h1 className="hxl">Battle Royal</h1>
-            <div className="bg-primary text-white hmd w-10 h-10 flex justify-center align-center">
-              25
+            <h1 className="hxl">{current.banner_text}</h1>
+            <div className="bg-primary text-white hsm2 w-fit h-fit flex justify-center align-center">
+              {current.date}
             </div>
           </div>
 
@@ -38,77 +41,23 @@ const Main = () => {
           {/* <div>Buttons</div> */}
           <div className="btn">Create a Tournament</div>
         </div>
-
         <Mytable />
       </div>
 
       <div id="games_scene" className="grid grid-cols-3 gap-3 mt-2">
-        <div className="container">
-          <img id="game_scene" src={game1} alt="" />
-          <div className="text-gray-500 hsm flex justify-between align-center my-2">
-            <span>Call Of Duty</span>
-            <span>Alpha</span>
+        {current.games.map(({ id, img, title, amount }) => (
+          <div key={id} className="container">
+            <img id="game_scene" src={img} alt="" />
+            <div className="text-gray-500 hsm flex justify-between align-center my-2">
+              <span>{current.game_name}</span>
+              <span>{current.game_tag}</span>
+            </div>
+            <div className="hsm flex justify-between align-center">
+              <span>{title}</span>
+              <span>{amount}</span>
+            </div>
           </div>
-          <div className="hsm flex justify-between align-center">
-            <span>Bandy, Kill the Boss Cup</span>
-            <span>$300,000</span>
-          </div>
-        </div>
-        <div className="container">
-          <img id="game_scene" src={game2} alt="" />
-          <div className="text-gray-500 hsm flex justify-between align-center my-2">
-            <span>Call Of Duty</span>
-            <span>Alpha</span>
-          </div>
-          <div className="hsm flex justify-between align-center">
-            <span>Bandy, Kill the Boss Cup</span>
-            <span>$300,000</span>
-          </div>
-        </div>
-        <div className="container">
-          <img id="game_scene" src={game3} alt="" />
-          <div className="text-gray-500 hsm flex justify-between align-center my-2">
-            <span>Call Of Duty</span>
-            <span>Alpha</span>
-          </div>
-          <div className="hsm flex justify-between align-center">
-            <span>Bandy, Kill the Boss Cup</span>
-            <span>$300,000</span>
-          </div>
-        </div>
-        <div className="container">
-          <img id="game_scene" src={game2} alt="" />
-          <div className="text-gray-500 hsm flex justify-between align-center my-2">
-            <span>Call Of Duty</span>
-            <span>Alpha</span>
-          </div>
-          <div className="hsm flex justify-between align-center">
-            <span>Bandy, Kill the Boss Cup</span>
-            <span>$300,000</span>
-          </div>
-        </div>
-        <div className="container">
-          <img id="game_scene" src={game5} alt="" />
-          <div className="text-gray-500 hsm flex justify-between align-center my-2">
-            <span>Call Of Duty</span>
-            <span>Alpha</span>
-          </div>
-          <div className="hsm flex justify-between align-center">
-            <span>Bandy, Kill the Boss Cup</span>
-            <span>$300,000</span>
-          </div>
-        </div>
-        <div className="container">
-          <img id="game_scene" src={game6} alt="" />
-          <div className="text-gray-500 hsm flex justify-between align-center my-2">
-            <span>Call Of Duty</span>
-            <span>Alpha</span>
-          </div>
-          <div className="hsm flex justify-between align-center">
-            <span>Bandy, Kill the Boss Cup</span>
-            <span>$300,000</span>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );

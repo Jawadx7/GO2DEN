@@ -8,7 +8,7 @@ import { useState } from "react";
 function App() {
   const [activesidebar, setActivesidebar] = useState("close");
   const [activerightbar, setActiverightbar] = useState("close");
-  const [activePlayer, setActivePlayer] = useState("");
+  const [activePlayer, setActivePlayer] = useState(0);
 
   const getActivePlayer = (id) => {
     setActivePlayer(id);
